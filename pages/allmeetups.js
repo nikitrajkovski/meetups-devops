@@ -41,7 +41,7 @@ export default function AllMeetupsPage() {
     } else {
         return (
             <section>
-                <h1>All Meetups</h1>
+                <h1>All Meetups
                 <MeetupList meetups={Object.values(loadedMeetups)}/>
             </section>
         )
