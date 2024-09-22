@@ -16,10 +16,10 @@ export default function AllMeetupsPage() {
                 return response.json();
             })
             .then((data) => {
-                // Assuming the "_id" should be used as the key
+                
                 const meetups = {};
                 data.forEach((meetup) => {
-                    const key = meetup._id; // Use the _id from the data
+                    const key = meetup._id; 
                     meetups[key] = {
                         address: meetup.address,
                         description: meetup.description,
