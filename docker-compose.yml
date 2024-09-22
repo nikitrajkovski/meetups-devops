@@ -1,13 +1,23 @@
 version: '3.8'
 services:
-  app:
-    image: meetups-app
+  meetups-app:
     build:
-      context: ./
+      context: .
       dockerfile: Dockerfile
+    restart: always
     volumes:
-        - .:/app
-        - /app/node_modules
-        - /app/.next
+      - ./:/usr/src/app
     ports:
       - "3000:3000"
+    depends_on:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
+
+
