@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: meetups-service
+  namespace: kiii-ns
+spec: 
+  selector:
+    app: meetups-app
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3000

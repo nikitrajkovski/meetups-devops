@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kiii-deployment
+  namespace: kiii-ns
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: meetups-app
+  template:
+    metadata:
+      labels:
+        app: meetups-app
+    spec:
+      containers:
+        - name: meetups-app
+          image: meetups-meetups-app:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
